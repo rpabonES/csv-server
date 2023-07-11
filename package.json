@@ -1,0 +1,11 @@
+{
+  "name": "csv-server",
+  "version": "1.0.0",
+  "description": "Testing Download CSV files",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
