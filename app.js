@@ -2,7 +2,6 @@
 
 const express = require('express');
 const fs = require('fs');
-require('dotenv').config();
 const path = require('path');
 const bodyParser = require('body-parser');
 
@@ -20,19 +19,21 @@ app.get('/', (request, response) => {
     })
 })
 
-app.get('/download-csv', (req, res) => {
-    const filePath = path.join(__dirname, 'public/test.csv');
+app.get('/descargar-csv', (req, res) => {
+    const filePath = path.join(__dirname, '/public/test.csv');
+    console.log(`filePath ${filePath}`);
 
-    // Check if the file exists
+    
     if (fs.existsSync(filePath)) {
         res.setHeader('Content-Type', 'text/csv');
         res.setHeader('Content-Disposition', 'attachment; filename=test.csv');
 
-        // Create a read stream from the file and pipe it to the response
+        // Creadr un readStream y añadir al archivo
         const fileStream = fs.createReadStream(filePath);
         fileStream.pipe(res);
     }else {
         res.status(404).send('Archivo No Encontrado');
+        
     }
 
 
