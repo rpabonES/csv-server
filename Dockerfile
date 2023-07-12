@@ -3,5 +3,6 @@ WORKDIR /usr/src/app
 ADD package*.json ./
 RUN npm install
 ADD index.js app.js ./
+EXPOSE 5000
 CMD ["node", "index.js"]
 
