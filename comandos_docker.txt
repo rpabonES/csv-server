@@ -1,6 +1,6 @@
 //
 
-docker build -t csv-api:v1 -f Dockerfile .
+docker build -t csv-api:v1 -f Dockerfile.dev .
 docker-compose build
 docker push rpabones/csv-api:v1 
 
@@ -13,3 +13,7 @@ docker pull electrosoftware/geoapi:v7
 
 
 docker-compose -f docker-compose.yaml up -d
+     with this one runs inmediately
+
+
+docker image rm 65ddaf089f04 5e3b6c60b69a 60608dadb620 e556f3195ac3 ed7acfad740a

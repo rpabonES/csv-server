@@ -6,3 +6,13 @@ Dockerfile
 .dockerignore
 .git
 docker-compose.yml
+
+Dockerfile
+docker*.yml
+.git
+.gitignore
+.config
+.npm
+.vscode
+node_modules
+README.md
