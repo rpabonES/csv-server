@@ -1,6 +1,0 @@
-docker build -t docker-csv-express-app .
-    .                           ->  Checks for the Dockerfile in the current directory, using which the image is built
-    -t docker-csv-express-app   ->  represents the name for the image along with its tag, the tag is latest
-
-docker run --name csv-api -d -p 5000:5000 docker-csv-express-app
-    5000:5000 [localPort]:[containerPort]
