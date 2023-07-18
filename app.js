@@ -24,7 +24,6 @@ app.get('/', (request, response) => {
 //API v1
 app.get('/api/v1/powerbi', (req, res) => {
     const filePath = path.join(__dirname, '/csvapi/PQR_SALP_EMCALI.csv');
-    console.log(`filePath ${filePath}`);
 
     
     if (fs.existsSync(filePath)) {
@@ -46,24 +45,22 @@ app.get('/api/v1/powerbi', (req, res) => {
 //api v2
 app.get('/api/v2/powerbi', (req, res) => {
     const filePath = path.join(__dirname, '/csvapi/PQR_SALP_EMCALI.csv');
-    res.download(filePath, 'PQR_SALP_EMCALI.csv', (err) => {
-    
+    const fileName = 'PQR_SALP_EMCALI.csv';
 
+    res.download(filePath, fileName, (err) => {
+   
      if(err){
-        res.json({
-            message: "Ocurrió un error al cargar el archivo"
-        })
-      console.log('Error Occured while downloading the content')
-      console.log(`filePath ${filePath}`);
-     }else{
-        res.json({
-            message: "Archivo descargado exitosamente"
-        })
-      console.log('File downloaded successfully');
-      console.log(`filePath ${filePath}`);
+      console.log('Error Occured while downloading the content');
+      
+      res.status(500).json({
+        message: 'Ocurrió un error al descargar el archivo',
+      });
      }
-    })
-   })
+     else{ 
+      console.log('File downloaded successfully');
+     }
+    });
+});
 
 
 
