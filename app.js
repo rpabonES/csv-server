@@ -13,6 +13,7 @@ const app = express();
 //app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded( { extended: true }));
 app.use(helmet());
+app.disable('x-powered-by');//Disable default header banner for security
 
 //Inicio - prueba
 app.get('/', (request, response) => {
@@ -21,7 +22,8 @@ app.get('/', (request, response) => {
     })
 })
 
-//API v1
+/*
+API LEGACY
 app.get('/api/v1/powerbi', (req, res) => {
     const filePath = path.join(__dirname, '/csvapi/PQR_SALP_EMCALI.csv');
 
@@ -40,10 +42,10 @@ app.get('/api/v1/powerbi', (req, res) => {
 
 
 });
+*/
 
-
-//api v2
-app.get('/api/v2/powerbi', (req, res) => {
+//API USANDO LA FORMA ADECUADA CON EXPRESS
+app.get('/api/v1/powerbi', (req, res) => {
     const filePath = path.join(__dirname, '/csvapi/PQR_SALP_EMCALI.csv');
     const fileName = 'PQR_SALP_EMCALI.csv';
 
@@ -51,7 +53,12 @@ app.get('/api/v2/powerbi', (req, res) => {
    
      if(err){
       console.log('Error Occured while downloading the content');
-      
+      // TODO
+      /* IMPLEMENT A REDIRECT IF SOMETHING GOES WRONG
+        if(!res.headersSent){
+            res.redirect('download/error');
+        }
+      */
       res.status(500).json({
         message: 'Ocurrió un error al descargar el archivo',
       });
