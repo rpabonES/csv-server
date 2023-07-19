@@ -1,4 +1,30 @@
-//
+// Comando para hacer build de la imagen localmente
+
+docker build -t powerbi-api:v1 -f Dockerfile .
+
+//Correr contenedor
+docker run -p 4000:4000 --name powerBI-api-cont csv-api:v1
+
+
+//PROBAR DESCARGA DE Archivo
+http://localhost:4000/api/v1/powerbi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/
 //**LEGACY
 docker build -t csv-api:v1 -f Dockerfile.dev .
 docker build -t csv-api:v1 -f Dockerfile .
@@ -8,7 +34,7 @@ docker push rpabones/csv-api:v1
 
 //TO run
 
-docker run -p 4000:4000 csv-api:v1
+docker run -p 4000:4000 --name csv-api:v1
 // ultimo release en produccion
 docker build -t geoapi -f Dockerfile.dev .
 docker push electrosoftware/geoapi:v8 
