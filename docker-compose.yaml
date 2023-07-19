@@ -3,7 +3,7 @@ services:
   csv-api:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     image: csv-server
     volumes:
       - ./csvapi:/usr/src/app/public

@@ -1,9 +1,14 @@
 //
 //**LEGACY
 docker build -t csv-api:v1 -f Dockerfile.dev .
+docker build -t csv-api:v1 -f Dockerfile .
 docker-compose build
 docker push rpabones/csv-api:v1 
 
+
+//TO run
+
+docker run -p 4000:4000 csv-api:v1
 // ultimo release en produccion
 docker build -t geoapi -f Dockerfile.dev .
 docker push electrosoftware/geoapi:v8 
