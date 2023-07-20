@@ -52,7 +52,7 @@ app.get('/api/v1/powerbi', (req, res) => {
     res.download(filePath, fileName, (err) => {
    
      if(err){
-      console.log('Error Occured while downloading the content');
+      console.log('Ocurrió un error al descargar el archivo');
       // TODO
       /* IMPLEMENT A REDIRECT IF SOMETHING GOES WRONG
         if(!res.headersSent){
@@ -64,7 +64,7 @@ app.get('/api/v1/powerbi', (req, res) => {
       });
      }
      else{ 
-      console.log('File downloaded successfully');
+      console.log('Archivo descargado exitosamente');
      }
     });
 });

@@ -5,9 +5,12 @@ node_modules/
 Dockerfile
 .dockerignore
 .git
-docker-compose.yml
+docker-compose.yaml
+comandos_docker.txt
+
 
 Dockerfile
+Dockerfile.dev
 docker*.yml
 .git
 .gitignore

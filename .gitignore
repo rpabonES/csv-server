@@ -1,6 +1,7 @@
 node_modules
 pack*.json
 .env
+PQR_SALP_EMCALI.csv
 
 
 # Logs
