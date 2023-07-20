@@ -4,6 +4,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const helmet = require('helmet');
+const handlingCSV = require('./handlingCSV');
 
 
 const app = express();
@@ -14,6 +15,7 @@ const app = express();
 //app.use(bodyParser.urlencoded( { extended: true }));
 app.use(helmet());
 app.disable('x-powered-by');//Disable default header banner for security
+handlingCSV();
 
 //Inicio - prueba
 app.get('/', (request, response) => {
